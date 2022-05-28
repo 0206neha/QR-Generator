@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Response Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <script type="text/javascript">
+
+        function generate()
+        {
+            var gapi="https://chart.googleapis.com/chart?chf=bg,s,65432100&cht=qr&chs=";
+            var image=document.getElementById("img");
+            var text=document.getElementById("qrtext").value;
+            var size=document.getElementById("size").value;
+
+            if(text!="" && size=="100")
+            {
+                image.src=gapi+"100x100"+"&chl="+text;
+            }
+
+            else if(text!=="" && size=="150")
+            {
+                image.src=gapi+"150x150"+"&chl="+text;
+            }
+
+            else if(text!=="" && size=="200")
+            {
+                image.src=gapi+"200x200"+"&chl="+text;
+            }
+
+            else if(text!=="" && size=="250")
+            {
+                image.src=gapi+"250x250"+"&chl="+text;
+            }
+
+            else if (text!=="" && size=="300")
+            {
+                image.src=gapi+"300x300"+"&chl="+text;
+            }
+
+            else
+            {
+                alert("Please Enter Text");
+            }
+        }
+    </script>
+
+    <div class="grid">
+           <h2 align="center">Qr Code Generator</h2>
+        <center>
+        <img src="" id="img"></center>
+
+        <select id="size">
+            <option value="100">100x100</option>
+            <option value="150">150x150</option>
+            <option value="200">200x200</option>
+            <option value="250" selected>250x250</option>
+            <option value="300">300x300</option>
+        </select>
+        <br><br>
+        <textarea placeholder="Enter Your Text" id="qrtext"></textarea>
+        <br><br>
+        <input type="submit" value="Generate" onclick="generate()">
+
+        <p>Developed By Neha Patil</p>
+
+    </div>
+</body>
+</html>
